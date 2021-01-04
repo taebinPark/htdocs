@@ -75,7 +75,7 @@ a:hover {
     margin-left: 0;
   }
 }
-input{
+#nightButton{
   float: right;
   position: relative;
 }
