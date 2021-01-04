@@ -15,13 +15,13 @@
   <input type="button" id="authBtn" value="checking..." onclick="
     if(this.value === 'Login'){
       // now logout
-      FB.Login(function(res){
+      FB.login(function(res){
         console.log('login =>', res);
         checkLoginStatus(res);
       });
     } else {
       // now login
-      FB.Logout(function(res){
+      FB.logout(function(res){
         console.log('logout =>', res);
         checkLoginStatus(res);
       });
@@ -35,6 +35,7 @@
     <div id="article">
     </div>
   </div>
+  <input type="button" id="nightButton" value="night" onclick="nightDayHandler(this)">
   <script>
     function fetchPage(name) {
       fetch(name).then(function(response) {
