@@ -19,7 +19,7 @@ function nightDayHandler(self) {
   }
   var Button = {
     setValue:function(value){
-      $('input').val(value);
+      $('#nightButton').val(value);
     }
   }
   //왠지 모르겠지만 if문 안에는 jquery문이 통하지 않는다... 중요!!
