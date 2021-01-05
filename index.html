@@ -19,10 +19,13 @@
       })
       gauth.then(function(){
         console.log('googleAuth success');
+        var loginBtn = document.querySelector('#loginBtn').value;
         if(gauth.isSignedIn.get()){
           console.log('logined');
+          loginBtn = 'Logout';
         } else {
           console.log('logouted');
+          loginBtn = 'Login';
         }
       }, function(){
         console.log('googleAuth fail');
@@ -32,6 +35,7 @@
 </script>
 
 <body>
+  <input type="button" id="loginBtn" value="checking...">
   <input type="button" id="authBtn" value="checking..." onclick="
     if(this.value === 'Login'){
       // now logout
