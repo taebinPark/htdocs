@@ -47,8 +47,7 @@
       gauth.signIn(
         {
           scope: 'https://www.googleapis.com/auth/calendar'
-        }
-      ).then(function(){
+        }).then(function(){
         console.log('gauth.signIn()');
         checkLoginStatus1();
       });
