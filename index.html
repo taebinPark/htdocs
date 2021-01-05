@@ -10,9 +10,14 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./color.js"></script>
   <script src="./fetch-master/fetch.js"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-
 </head>
+<script>
+  function init() {
+    gapi.load('auth2', function() {
+      console.log('auth2');
+    });
+  }
+</script>
 <script>
   function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
@@ -112,6 +117,7 @@
     }(document, 'script', 'facebook-jssdk'));
   </script>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
 </body>
 
 </html>
