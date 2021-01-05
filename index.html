@@ -26,7 +26,7 @@
         checkLoginStatus(res);
       });
     }
-  ">
+  "><span id="name"></span>
   <h1><a href="#welcome" onclick="fetchPage('web')">WEB</a></h1>
   <div id="grid">
     <ol id="nav">
@@ -68,6 +68,9 @@
     var checkLoginStatus = function(response) { // Called after the JS SDK has been initialized.
       if (response.status === 'connected') {
         document.querySelector('#authBtn').value = 'Logout';
+        FB.api('/me' function(resp){
+          document.querySelector('#name').innerHTML = 'Welcome '+resp.name;
+        })
       } else {
         document.querySelector('#authBtn').value = 'Login';
       }
