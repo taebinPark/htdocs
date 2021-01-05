@@ -19,13 +19,13 @@
       })
       gauth.then(function(){
         console.log('googleAuth success');
-        var loginBtn = document.querySelector('#loginBtn').value;
+        var loginBtn = document.querySelector('#loginBtn');
         if(gauth.isSignedIn.get()){
           console.log('logined');
-          loginBtn = 'Logout';
+          loginBtn.value = 'Logout';
         } else {
           console.log('logouted');
-          loginBtn = 'Login';
+          loginBtn.value = 'Login';
         }
       }, function(){
         console.log('googleAuth fail');
