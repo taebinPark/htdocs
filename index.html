@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="google-signin-client_id" content="307333576553-ofdqavkh1mju6rbameka02qol9juufif.apps.googleusercontent.com">
   <link rel="stylesheet" href="./style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./color.js"></script>
@@ -16,6 +15,14 @@
     console.log('init');
     gapi.load('auth2', function() {
       console.log('auth2');
+      var gauth = gapi.auth2.init({
+        client_id:'307333576553-ofdqavkh1mju6rbameka02qol9juufif.apps.googleusercontent.com'
+      })
+      gauth.then(function(){
+        console.log('googleAuth success');
+      }, function(){
+        console.log('googleAuth fail');
+      })
     });
   }
 </script>
