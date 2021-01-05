@@ -10,6 +10,16 @@
   <script src="./color.js"></script>
 </head>
 <script>
+  function checkLoginStatus1(){
+    var loginBtn = document.querySelector('#loginBtn');
+    if(gauth.isSignedIn.get()){
+      console.log('logined');
+      loginBtn.value = 'Logout';
+    } else {
+      console.log('logouted');
+      loginBtn.value = 'Login';
+    }
+  }
   function init() {
     console.log('init');
     gapi.load('auth2', function() {
@@ -19,14 +29,7 @@
       })
       gauth.then(function(){
         console.log('googleAuth success');
-        var loginBtn = document.querySelector('#loginBtn');
-        if(gauth.isSignedIn.get()){
-          console.log('logined');
-          loginBtn.value = 'Logout';
-        } else {
-          console.log('logouted');
-          loginBtn.value = 'Login';
-        }
+        checkLoginStatus1();
       }, function(){
         console.log('googleAuth fail');
       });
@@ -39,11 +42,13 @@
     if(this.value === 'Login'){
       gauth.signIn().then(function(){
         console.log('gauth.signIn()');
+        checkLoginStatus1();
       });
     } else {
       gauth.signOut().then(function(){
         console.log('gauth.signOut()');
-      });;
+        checkLoginStatus1();
+      });
     }
   ">
   <input type="button" id="authBtn" value="checking..." onclick="
