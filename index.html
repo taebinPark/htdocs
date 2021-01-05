@@ -12,9 +12,12 @@
 <script>
   function checkLoginStatus1(){
     var loginBtn = document.querySelector('#loginBtn');
+    var nameText = document.querySelector('#name1');
     if(gauth.isSignedIn.get()){
       console.log('logined');
       loginBtn.value = 'Logout';
+      var profile = gauth.currentUser.get().getBasicProfile();
+      nameText.innerHTML = 'Welcome <strong>'+profile.getName()+'</strong> ';
     } else {
       console.log('logouted');
       loginBtn.value = 'Login';
@@ -50,7 +53,7 @@
         checkLoginStatus1();
       });
     }
-  ">
+  "><span id="name1"></span>
   <input type="button" id="authBtn" value="checking..." onclick="
     if(this.value === 'Login'){
       // now logout
