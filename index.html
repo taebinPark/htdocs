@@ -68,7 +68,7 @@
     var checkLoginStatus = function(response) { // Called after the JS SDK has been initialized.
       if (response.status === 'connected') {
         document.querySelector('#authBtn').value = 'Logout';
-        FB.api('/me' function(resp){
+        FB.api('/me', function(resp){
           document.querySelector('#name').innerHTML = 'Welcome '+resp.name;
         });
       } else {
